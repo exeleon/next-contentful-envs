@@ -28,7 +28,7 @@ const Home: NextPage<Props> = (props) => {
         <h1 className={styles.title}>{copy.get("title")}</h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
+          Message
           <code className={styles.code}>pages/index.tsx</code>
         </p>
       </main>
