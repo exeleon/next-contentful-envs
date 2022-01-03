@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { documentToReactComponents as renderRichText } from "@contentful/rich-text-react-renderer";
+
 import styles from "../styles/Home.module.css";
 import { useMicrocopy } from "../common/hooks/useMicrocopy";
 import { instance as contentService } from "../common/services/contentful";
@@ -27,10 +29,9 @@ const Home: NextPage<Props> = (props) => {
       <main className={styles.main}>
         <h1 className={styles.title}>{copy.get("title")}</h1>
 
-        <p className={styles.description}>
-          Message
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+        <div className={styles.description}>
+          {renderRichText(copy.getDocument("description"))}
+        </div>
       </main>
 
       <footer className={styles.footer}>
