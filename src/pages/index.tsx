@@ -16,6 +16,7 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props) => {
+  console.log("🚀 ~ file: index.tsx ~ line 19 ~ props", props);
   const copy = useMicrocopy(props.microcopy);
 
   return (
