@@ -20,18 +20,17 @@ jobs:
 
       - name: Contentful Migration
         id: migrate
-        uses: contentful-userland/contentful-action@main
-        with:
-          delete_feature: false
-          set_alias: true
-          master_pattern: "prod-[DD]-[MM]-[YYYY]-[hh][mm][ss]"
-          feature_pattern: "sandbox-[branch]"
-          version_field: version
-          version_content_type: versionTracking
-          migrations_dir: contentful_migrations
-          space_id: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          management_api_key: ${{ secrets.CONTENTFUL_MANAGEMENT_API_KEY }}
+        uses: contentful-userland/contentful-action@v1
         env:
+          DELETE_FEATURE: false
+          SET_ALIAS: true
+          MASTER_PATTERN: "prod-[DD]-[MM]-[YYYY]-[hh][mm][ss]"
+          FEATURE_PATTERN: "sandbox-[branch]"
+          VERSION_FIELD: version
+          VERSION_CONTENT_TYPE: versionTracking
+          MIGRATIONS_DIR: contentful_migrations
+          SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          MANAGEMENT_API_KEY: ${{ secrets.CONTENTFUL_MANAGEMENT_API_KEY }}
           LOG_LEVEL: verbose
 
       - name: Create commit comment
