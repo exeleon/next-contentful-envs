@@ -20,7 +20,7 @@ jobs:
 
       - name: Contentful Migration
         id: migrate
-        uses: contentful-userland/contentful-migration-automation@v1
+        uses: contentful-userland/contentful-action@v1
         with:
           delete_feature: false
           set_alias: true
